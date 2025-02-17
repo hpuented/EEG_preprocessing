@@ -6,7 +6,19 @@ files = files(3:end);
 
 saving_folder = 'C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\Scripts\data\pre-processing\epoch_selection\';
 
-%% Epoch selection using spectrogram
+
+
+% GET_EPOCHS - Collection of good epochs using spectogram
+%
+% Inputs: 
+% files          = filtered eeg directory
+%
+% Outputs:
+% eeg_patient    = reconstructed 1-hour eeg
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function eeg_patient = get_epochs(files)
+files = files(3:end);
+
 for i = 1:length(files)
     fprintf('Selecting good epochs from: %s.\n', files(i).name)
 
@@ -82,15 +94,5 @@ for i = 1:length(files)
         eeg_patient.eeg_data.trial = eeg_patient.eeg_data.trial(good_epochs);
         eeg_patient.eeg_data.time = eeg_patient.eeg_data.time(good_epochs);
         eeg_patient.daytime = eeg_patient.daytime(good_epochs);
-    end
-    
-    % Saving file
-    if contains(varname,'pre')
-        eeg_patient_pre_recons = eeg_patient;
-        save(strcat(saving_folder, eeg_patient_pre_recons.name,'_pre_recons.mat'), 'eeg_patient_pre_recons', '-v7.3');
-    
-    else
-        eeg_patient_post_recons = eeg_patient;
-        save(strcat(saving_folder, eeg_patient_post_recons.name,'_post_recons.mat'), 'eeg_patient_post_recons', '-v7.3');
     end
 end
