@@ -1,13 +1,3 @@
-addpath C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\FieldTrip
-ft_defaults
-
-files = dir('C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\Scripts\data\pre-processing\filtered');
-files = files(3:end);
-
-saving_folder = 'C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\Scripts\data\pre-processing\epoch_selection\';
-
-
-
 % GET_EPOCHS - Collection of good epochs using spectogram
 %
 % Inputs: 
