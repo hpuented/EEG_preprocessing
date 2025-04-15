@@ -1,11 +1,3 @@
-addpath C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\FieldTrip
-ft_defaults
-
-files = dir('C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\Scripts\data\pre-processing\rearrange');
-files = files(3:end);
-
-saving_folder = 'C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\Scripts\data\pre-processing\ica\components\';
-
 %% Step 1. ICA components
 for i = 1:length(files)
     fprintf('ICA decomposition: %s.\n', files(i).name)
@@ -59,8 +51,6 @@ for i = 1:length(files)
 end
 
 %% Step 2. Identifying and removing the artifacts (patient by patient)
-load C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\Scripts\code\pre-processing\eeg_layout.mat
-load C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\Scripts\data\pre-processing\ica\components\Jenni_post_ICA_comp.mat
 %% Plots
 % Time course of the components
 cfg = [];
@@ -77,13 +67,10 @@ cfg.comment   = 'no';
 ft_topoplotIC(cfg, components)
 
 %% Remove the artifacts
-comp_files = dir('C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\Scripts\data\pre-processing\ica\components');
+comp_files = dir('...\ica\components');
 comp_files = comp_files(3:end);
 
-data_files = dir('C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\Scripts\data\pre-processing\rearrange');
 data_files = data_files(3:end);
-
-saving_folder = 'C:\Users\helen\Documentos\UT\2A\2.Project\3.Code\Scripts\data\pre-processing\ica\data\';
 
 artifacts = {[2 4 10]; [1 2]; [2 4]; [1 3]; [1 2]; [1 3 13]; [1 2 19]; [4]; [3 5 6]; [1 2 8];
     [1 2 3 10 11]; [1 2 9]; [1 2]; [2 3]; [2 3 14]; [2 3 7]; [2 3 5 7]; [1 2 7]; [2 5 13]; [1 2 3 9]};
