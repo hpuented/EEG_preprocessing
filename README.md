@@ -1,7 +1,7 @@
 # 🧠 DeepEpoch
 
 **DeepEpoch** is a MATLAB-based pipeline for preprocessing and analyzing long-term EEG recordings.  
-Designed for 3+ hour `.edf` files, it provides tools to extract meaningful neural features—power, connectivity, and entropy—from clean EEG data.
+Designed for 3+ hour `.edf` files, it provides tools to extract meaningful neural features (power, connectivity, and entropy) from clean EEG data.
 
 ---
 
@@ -26,12 +26,12 @@ This pipeline runs in **MATLAB** and includes:
 
 | File | Description |
 |------|-------------|
-| `01_load_edf.m` | Loads raw `.edf` EEG file and prepares it for processing |
-| `02_epoch_selection_spectrogram.m` | Visualizes spectrograms for manual epoch rejection |
-| `03_filter_and_ica.m` | Applies bandpass and notch filtering, then runs ICA |
-| `04_compute_fft_power.m` | Extracts frequency band power using FFT |
-| `05_connectivity_dwpli_icoh.m` | Computes dWPLI and iCOH for functional connectivity |
-| `06_entropy_sampen.m` | Calculates Sample Entropy on cleaned EEG |
+| `get_eeg.m` | Loads raw `.edf` EEG file and prepares it for processing |
+| `get_epochs.m` | Epoch rejection |
+| `filtering.m` and `ica.m` | Applies bandpass (0.25 to 70 Hz), notch (50 Hz), notch (harmonics, patient dependent) & CAR filtering, then ICA |
+| `get_fft.m` | Extracts frequency band power using FFT |
+| `get_dwpli.m` and `get_Imgcoherence.m` | Computes dWPLI and iCOH for functional connectivity |
+| `get_SampEn.m` | Calculates Sample Entropy on cleaned EEG |
 
 ---
 
